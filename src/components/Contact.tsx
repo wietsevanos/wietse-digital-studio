@@ -109,7 +109,7 @@ const Contact = () => {
                   placeholder="Je naam"
                   value={formData.naam}
                   onChange={handleChange}
-                  className="bg-background/50 border-border/50 focus:border-blue-electric"
+                  className="bg-background/50 border border-blue-vibrant/50 focus:border-blue-electric"
                 />
                 {errors.naam && <p className="text-sm text-red-400">{errors.naam}</p>}
               </div>
@@ -123,7 +123,7 @@ const Contact = () => {
                   placeholder="je@email.nl"
                   value={formData.email}
                   onChange={handleChange}
-                  className="bg-background/50 border-border/50 focus:border-blue-electric"
+                  className="bg-background/50 border border-blue-vibrant/50 focus:border-blue-electric"
                 />
                 {errors.email && <p className="text-sm text-red-400">{errors.email}</p>}
               </div>
@@ -139,7 +139,7 @@ const Contact = () => {
                   placeholder="06 12345678"
                   value={formData.telefoon}
                   onChange={handleChange}
-                  className="bg-background/50 border-border/50 focus:border-blue-electric"
+                  className="bg-background/50 border border-blue-vibrant/50 focus:border-blue-electric"
                 />
                 {errors.telefoon && <p className="text-sm text-red-400">{errors.telefoon}</p>}
               </div>
@@ -152,7 +152,7 @@ const Contact = () => {
                   placeholder="Je bedrijfsnaam"
                   value={formData.bedrijf}
                   onChange={handleChange}
-                  className="bg-background/50 border-border/50 focus:border-blue-electric"
+                  className="bg-background/50 border border-blue-vibrant/50 focus:border-blue-electric"
                 />
                 {errors.bedrijf && <p className="text-sm text-red-400">{errors.bedrijf}</p>}
               </div>
@@ -167,7 +167,7 @@ const Contact = () => {
                 value={formData.opmerking}
                 onChange={handleChange}
                 rows={4}
-                className="bg-background/50 border-border/50 focus:border-blue-electric resize-none"
+                className="bg-background/50 border border-blue-vibrant/50 focus:border-blue-electric resize-none"
               />
             </div>
 
