@@ -95,7 +95,7 @@ const Pricing = () => {
             </p>
             
             {/* Price - left aligned like reference */}
-            <div className="text-left mb-8">
+            <div className="text-left mb-8 mt-5">
               <span className="text-[2.5rem] font-normal text-background">€20</span>
               <span className="text-background/70 text-xl font-normal ml-2">/ maand</span>
             </div>
