@@ -17,23 +17,16 @@ const Hero = () => {
     }} />
       
       <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="animate-fade-in">
-          <p className="text-label uppercase text-blue-sky mb-6 tracking-widest">
-            Webdesign Studio
-          </p>
-        </div>
-        
         <h1 className="text-display font-light text-foreground mb-4 animate-fade-in-up stagger-1">
-          Crafting{" "}
-          <span className="font-display italic text-gradient">clean</span>,<br />
-          modern websites
+          Wietse{" "}
+          <span className="font-display italic text-gradient">Webworks</span>
         </h1>
         
         <p className="text-display-sm font-light text-muted-foreground mb-8 animate-fade-in-up stagger-2">
-          for local entrepreneurs
+          Clean, modern en doelgericht webdesign voor ambitieuze ondernemers.
         </p>
         
-        <p className="text-body-lg text-muted-foreground max-w-2xl mb-12 animate-fade-in-up stagger-3">Wietse Webworks ontwerpt strak, effectief en betaalbaar webdesign voor ondernemers met ambities. Van concept tot lancering, helder en zonder poespas.</p>
+        <p className="text-body-lg text-muted-foreground max-w-2xl mb-12 animate-fade-in-up stagger-3">Van idee tot livegang, helder en zorgvuldig uitgevoerd.</p>
         
         <div className="flex flex-wrap gap-4 animate-fade-in-up stagger-4">
           <Button variant="hero" size="lg" onClick={() => scrollToSection("werk")}>
