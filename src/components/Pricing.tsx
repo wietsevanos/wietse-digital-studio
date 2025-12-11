@@ -56,20 +56,20 @@ const Pricing = () => {
 
         {/* Two cards */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
-          {/* Website Options Card */}
-          <div className="animate-fade-in-up stagger-3 bg-card border border-blue-vibrant/30 p-6 flex flex-col">
-            <h3 className="text-xl font-normal mb-2 tracking-wide text-foreground">
+          {/* Website Options Card - Dark background, blue button */}
+          <div className="animate-fade-in-up stagger-3 bg-card border border-blue-vibrant/20 p-6 flex flex-col">
+            <h3 className="text-lg font-medium mb-1 tracking-wide text-foreground">
               Website opties en eenmalige kosten
             </h3>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-muted-foreground mb-6">
               Afhankelijk van gekozen functies
             </p>
             
-            {/* Price prominent */}
-            <div className="text-center mt-4 mb-6">
-              <span className="text-sm text-muted-foreground block mb-1">vanaf</span>
-              <span className="text-4xl font-semibold text-gradient">€500</span>
-              <span className="text-muted-foreground text-lg ml-1">– €1.800</span>
+            {/* Price - left aligned like reference */}
+            <div className="text-left mb-8">
+              <span className="text-sm text-blue-electric block mb-1">vanaf</span>
+              <span className="text-[2.5rem] font-semibold text-blue-electric">€500</span>
+              <span className="text-blue-electric/70 text-xl ml-2">– €1.800</span>
             </div>
 
             <button
@@ -85,24 +85,25 @@ const Pricing = () => {
             </button>
           </div>
 
-          {/* Monthly Service Card */}
-          <div className="animate-fade-in-up stagger-4 bg-card border border-blue-vibrant/30 p-6 flex flex-col">
-            <h3 className="text-xl font-normal mb-2 tracking-wide text-foreground">
+          {/* Monthly Service Card - Blue background, dark button */}
+          <div className="animate-fade-in-up stagger-4 bg-blue-vibrant border border-blue-vibrant p-6 flex flex-col">
+            <h3 className="text-lg font-medium mb-1 tracking-wide text-background">
               Maandelijkse service
             </h3>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-background/70 mb-6">
               Hosting, veiligheid en onderhoud in één pakket
             </p>
             
-            {/* Price prominent */}
-            <div className="text-center mt-4 mb-6">
-              <span className="text-4xl font-semibold text-gradient">€20</span>
-              <span className="text-muted-foreground text-lg ml-1">/ maand</span>
+            {/* Price - left aligned like reference */}
+            <div className="text-left mb-8">
+              <span className="text-sm text-background/70 block mb-1">vanaf</span>
+              <span className="text-[2.5rem] font-semibold text-background">€20</span>
+              <span className="text-background/70 text-xl ml-2">/ maand</span>
             </div>
 
             <button
               onClick={() => togglePanel("service")}
-              className="w-full border border-blue-vibrant/40 bg-transparent text-foreground hover:bg-blue-vibrant hover:text-background hover:border-blue-vibrant transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
+              className="w-full bg-card text-foreground hover:bg-secondary transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
             >
               <span>Bekijk details</span>
               <ChevronDown 
