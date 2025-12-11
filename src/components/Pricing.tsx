@@ -43,126 +43,142 @@ const Pricing = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-label uppercase text-blue-electric mb-4 tracking-widest animate-fade-in">
-            Transparante tarieven
+            Tarieven
           </p>
-          <h2 className="text-display-sm font-light text-foreground animate-fade-in-up stagger-1 max-w-3xl mx-auto">
-            Eenmalige bouwkosten + maandelijkse service werken samen voor het beste eindresultaat
+          <h2 className="text-display-sm font-light text-foreground animate-fade-in-up stagger-1">
+            Bouwkosten en{" "}
+            <span className="font-display italic text-gradient">service</span>
           </h2>
+          <p className="text-body text-muted-foreground mt-4 animate-fade-in-up stagger-2">
+            Eenmalige kosten + maandelijkse service, helder geprijsd.
+          </p>
         </div>
 
-        {/* Two large buttons */}
+        {/* Two cards */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
-          {/* Website Options Button */}
-          <div className="animate-fade-in-up stagger-2">
+          {/* Website Options Card */}
+          <div className="animate-fade-in-up stagger-3 bg-card border border-blue-vibrant/30 p-6 flex flex-col">
+            <h3 className="text-xl font-normal mb-2 tracking-wide text-foreground">
+              Website opties en eenmalige kosten
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Afhankelijk van gekozen functies
+            </p>
+            
+            {/* Price prominent */}
+            <div className="text-center mt-4 mb-6">
+              <span className="text-sm text-muted-foreground block mb-1">vanaf</span>
+              <span className="text-4xl font-semibold text-gradient">€500</span>
+              <span className="text-muted-foreground text-lg ml-1">– €1.800</span>
+            </div>
+
             <button
               onClick={() => togglePanel("website")}
-              className="w-full bg-blue-vibrant text-background hover:bg-blue-electric transition-all duration-300 p-8 lg:p-10 text-left group shadow-lg shadow-blue-vibrant/25 hover:shadow-blue-electric/40"
+              className="w-full bg-blue-vibrant text-background hover:bg-blue-electric transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl lg:text-2xl font-normal mb-3 tracking-wide">
-                    Website opties en eenmalige kosten
-                  </h3>
-                  <p className="text-background/80 text-sm lg:text-base">
-                    Vanaf €500 tot €1.800, afhankelijk van gekozen functies
-                  </p>
-                </div>
-                <ChevronDown 
-                  className={`w-6 h-6 flex-shrink-0 transition-transform duration-300 ${
-                    openPanel === "website" ? "rotate-180" : ""
-                  }`} 
-                />
-              </div>
+              <span>Bekijk opties</span>
+              <ChevronDown 
+                className={`w-5 h-5 transition-transform duration-300 ${
+                  openPanel === "website" ? "rotate-180" : ""
+                }`} 
+              />
             </button>
+          </div>
 
-            {/* Website Features Panel */}
-            <div 
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                openPanel === "website" ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-              }`}
+          {/* Monthly Service Card */}
+          <div className="animate-fade-in-up stagger-4 bg-card border border-blue-vibrant/30 p-6 flex flex-col">
+            <h3 className="text-xl font-normal mb-2 tracking-wide text-foreground">
+              Maandelijkse service
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Hosting, veiligheid en onderhoud in één pakket
+            </p>
+            
+            {/* Price prominent */}
+            <div className="text-center mt-4 mb-6">
+              <span className="text-4xl font-semibold text-gradient">€20</span>
+              <span className="text-muted-foreground text-lg ml-1">/ maand</span>
+            </div>
+
+            <button
+              onClick={() => togglePanel("service")}
+              className="w-full border border-blue-vibrant/40 bg-transparent text-foreground hover:bg-blue-vibrant hover:text-background hover:border-blue-vibrant transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
             >
-              <div className="bg-card border border-blue-vibrant/30 p-8 lg:p-10">
-                <div className="flex items-center justify-between mb-6">
-                  <h4 className="text-lg font-normal text-foreground">Inclusief opties</h4>
-                  <button 
-                    onClick={() => setOpenPanel(null)}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+              <span>Bekijk details</span>
+              <ChevronDown 
+                className={`w-5 h-5 transition-transform duration-300 ${
+                  openPanel === "service" ? "rotate-180" : ""
+                }`} 
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Expandable panels below cards */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
+          {/* Website Features Panel */}
+          <div 
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              openPanel === "website" ? "opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="bg-card border border-blue-vibrant/30 p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h4 className="text-lg font-normal text-foreground">Inclusief opties</h4>
+                <button 
+                  onClick={() => setOpenPanel(null)}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="grid gap-3">
+                {websiteFeatures.map((feature) => (
+                  <div 
+                    key={feature} 
+                    className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
                   >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {websiteFeatures.map((feature) => (
-                    <div 
-                      key={feature} 
-                      className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
-                    >
-                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
-                      <span className="text-sm text-foreground/90">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
+                    <span className="text-sm text-foreground/90">{feature}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Monthly Service Button */}
-          <div className="animate-fade-in-up stagger-3">
-            <button
-              onClick={() => togglePanel("service")}
-              className="w-full border border-blue-vibrant/40 bg-transparent text-foreground hover:bg-blue-vibrant hover:text-background hover:border-blue-vibrant transition-all duration-300 p-8 lg:p-10 text-left group"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl lg:text-2xl font-normal mb-3 tracking-wide">
-                    Maandelijkse service (€20 p.m.)
-                  </h3>
-                  <p className="text-muted-foreground group-hover:text-background/80 text-sm lg:text-base transition-colors">
-                    Hosting, veiligheid en onderhoud in één pakket
-                  </p>
-                </div>
-                <ChevronDown 
-                  className={`w-6 h-6 flex-shrink-0 transition-transform duration-300 ${
-                    openPanel === "service" ? "rotate-180" : ""
-                  }`} 
-                />
+          {/* Service Features Panel */}
+          <div 
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              openPanel === "service" ? "opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="bg-card border border-blue-vibrant/30 p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h4 className="text-lg font-normal text-foreground">Wat zit erin</h4>
+                <button 
+                  onClick={() => setOpenPanel(null)}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-            </button>
-
-            {/* Service Features Panel */}
-            <div 
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                openPanel === "service" ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              <div className="bg-card border border-blue-vibrant/30 p-8 lg:p-10">
-                <div className="flex items-center justify-between mb-6">
-                  <h4 className="text-lg font-normal text-foreground">Wat zit erin</h4>
-                  <button 
-                    onClick={() => setOpenPanel(null)}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+              <div className="grid gap-3">
+                {serviceFeatures.map((feature) => (
+                  <div 
+                    key={feature} 
+                    className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
                   >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {serviceFeatures.map((feature) => (
-                    <div 
-                      key={feature} 
-                      className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
-                    >
-                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
-                      <span className="text-sm text-foreground/90">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
+                    <span className="text-sm text-foreground/90">{feature}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
         {/* Footer text */}
-        <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto animate-fade-in-up stagger-4">
+        <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto animate-fade-in-up stagger-5">
           De uiteindelijke totaalprijs bestaat uit de eenmalige bouwkosten + de maandelijkse service. Zo weet je altijd waar je aan toe bent.
         </p>
       </div>
