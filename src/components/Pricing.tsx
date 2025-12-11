@@ -68,8 +68,8 @@ const Pricing = () => {
             {/* Price - left aligned like reference */}
             <div className="text-left mb-8">
               <span className="text-sm text-blue-electric block mb-1">vanaf</span>
-              <span className="text-[2.5rem] font-semibold text-blue-electric">€500</span>
-              <span className="text-blue-electric/70 text-xl ml-2">– €1.800</span>
+              <span className="text-[2.5rem] font-normal text-blue-electric">€500</span>
+              <span className="text-blue-electric/70 text-xl font-normal ml-2">– €1.800</span>
             </div>
 
             <button
@@ -96,9 +96,8 @@ const Pricing = () => {
             
             {/* Price - left aligned like reference */}
             <div className="text-left mb-8">
-              <span className="text-sm text-background/70 block mb-1">vanaf</span>
-              <span className="text-[2.5rem] font-semibold text-background">€20</span>
-              <span className="text-background/70 text-xl ml-2">/ maand</span>
+              <span className="text-[2.5rem] font-normal text-background">€20</span>
+              <span className="text-background/70 text-xl font-normal ml-2">/ maand</span>
             </div>
 
             <button
