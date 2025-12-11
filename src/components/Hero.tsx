@@ -18,8 +18,8 @@ const Hero = () => {
       
       <div className="container mx-auto max-w-5xl relative z-10">
         <h1 className="text-display font-light text-foreground mb-4 animate-fade-in-up stagger-1">
-          Wietse{" "}
-          <span className="font-display italic text-gradient">Webworks</span>
+          <span className="tracking-wide">Wietse</span>{" "}
+          <span className="font-display italic text-gradient tracking-wide">Webworks</span>
         </h1>
         
         <p className="text-display-sm font-light text-muted-foreground mb-8 animate-fade-in-up stagger-2">
@@ -38,10 +38,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-fade-in stagger-5">
-        <div className="w-px h-16 bg-gradient-to-b from-blue-vibrant/50 to-transparent" />
-      </div>
     </section>;
 };
 export default Hero;
