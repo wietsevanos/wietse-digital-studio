@@ -54,124 +54,125 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* Two cards */}
+        {/* Two cards - each with its own expandable panel */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
-          {/* Website Options Card - Dark background, blue button */}
-          <div className="animate-fade-in-up stagger-3 bg-card border border-blue-vibrant/20 p-6 flex flex-col">
-            <h3 className="text-lg font-medium mb-1 tracking-wide text-foreground">
-              Website opties en eenmalige kosten
-            </h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              Afhankelijk van gekozen functies
-            </p>
-            
-            {/* Price - left aligned like reference */}
-            <div className="text-left mb-8">
-              <span className="text-sm text-blue-electric block mb-1">vanaf</span>
-              <span className="text-[2.5rem] font-normal text-blue-electric">€500</span>
-              <span className="text-blue-electric/70 text-xl font-normal ml-2">– €1.800</span>
+          {/* Website Options Card + Panel */}
+          <div className="flex flex-col gap-4">
+            <div className="animate-fade-in-up stagger-3 bg-card border border-blue-vibrant/20 p-6 flex flex-col">
+              <h3 className="text-lg font-medium mb-1 tracking-wide text-foreground">
+                Website opties en eenmalige kosten
+              </h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                Afhankelijk van gekozen functies
+              </p>
+              
+              {/* Price - left aligned like reference */}
+              <div className="text-left mb-8">
+                <span className="text-sm text-blue-electric block mb-1">vanaf</span>
+                <span className="text-[2.5rem] font-normal text-blue-electric">€500</span>
+                <span className="text-blue-electric/70 text-xl font-normal ml-2">– €1.800</span>
+              </div>
+
+              <button
+                onClick={() => togglePanel("website")}
+                className="w-full bg-blue-vibrant text-background hover:bg-blue-electric transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
+              >
+                <span>Bekijk opties</span>
+                <ChevronDown 
+                  className={`w-5 h-5 transition-transform duration-300 ${
+                    openPanel === "website" ? "rotate-180" : ""
+                  }`} 
+                />
+              </button>
             </div>
 
-            <button
-              onClick={() => togglePanel("website")}
-              className="w-full bg-blue-vibrant text-background hover:bg-blue-electric transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
+            {/* Website Features Panel */}
+            <div 
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                openPanel === "website" ? "opacity-100" : "max-h-0 opacity-0"
+              }`}
             >
-              <span>Bekijk opties</span>
-              <ChevronDown 
-                className={`w-5 h-5 transition-transform duration-300 ${
-                  openPanel === "website" ? "rotate-180" : ""
-                }`} 
-              />
-            </button>
+              <div className="bg-card border border-blue-vibrant/30 p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h4 className="text-lg font-normal text-foreground">Inclusief opties</h4>
+                  <button 
+                    onClick={() => setOpenPanel(null)}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="grid gap-3">
+                  {websiteFeatures.map((feature) => (
+                    <div 
+                      key={feature} 
+                      className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
+                    >
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
+                      <span className="text-sm text-foreground/90">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Monthly Service Card - Blue background, dark button */}
-          <div className="animate-fade-in-up stagger-4 bg-blue-vibrant border border-blue-vibrant p-6 flex flex-col">
-            <h3 className="text-lg font-medium mb-1 tracking-wide text-background">
-              Maandelijkse service
-            </h3>
-            <p className="text-sm text-background/70 mb-6">
-              Hosting, veiligheid en onderhoud in één pakket
-            </p>
-            
-            {/* Price - left aligned like reference */}
-            <div className="text-left mb-8 mt-5">
-              <span className="text-[2.5rem] font-normal text-background">€20</span>
-              <span className="text-background/70 text-xl font-normal ml-2">/ maand</span>
+          {/* Monthly Service Card + Panel */}
+          <div className="flex flex-col gap-4">
+            <div className="animate-fade-in-up stagger-4 bg-blue-vibrant border border-blue-vibrant p-6 flex flex-col">
+              <h3 className="text-lg font-medium mb-1 tracking-wide text-background">
+                Maandelijkse service
+              </h3>
+              <p className="text-sm text-background/70 mb-6">
+                Hosting, veiligheid en onderhoud in één pakket
+              </p>
+              
+              {/* Price - left aligned like reference */}
+              <div className="text-left mb-8 mt-5">
+                <span className="text-[2.5rem] font-normal text-background">€20</span>
+                <span className="text-background/70 text-xl font-normal ml-2">/ maand</span>
+              </div>
+
+              <button
+                onClick={() => togglePanel("service")}
+                className="w-full bg-card text-foreground hover:bg-secondary transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
+              >
+                <span>Bekijk details</span>
+                <ChevronDown 
+                  className={`w-5 h-5 transition-transform duration-300 ${
+                    openPanel === "service" ? "rotate-180" : ""
+                  }`} 
+                />
+              </button>
             </div>
 
-            <button
-              onClick={() => togglePanel("service")}
-              className="w-full bg-card text-foreground hover:bg-secondary transition-all duration-300 py-3.5 px-6 text-center mt-auto flex items-center justify-center gap-2"
+            {/* Service Features Panel */}
+            <div 
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                openPanel === "service" ? "opacity-100" : "max-h-0 opacity-0"
+              }`}
             >
-              <span>Bekijk details</span>
-              <ChevronDown 
-                className={`w-5 h-5 transition-transform duration-300 ${
-                  openPanel === "service" ? "rotate-180" : ""
-                }`} 
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* Expandable panels below cards */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-8">
-          {/* Website Features Panel */}
-          <div 
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${
-              openPanel === "website" ? "opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <div className="bg-card border border-blue-vibrant/30 p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h4 className="text-lg font-normal text-foreground">Inclusief opties</h4>
-                <button 
-                  onClick={() => setOpenPanel(null)}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              <div className="grid gap-3">
-                {websiteFeatures.map((feature) => (
-                  <div 
-                    key={feature} 
-                    className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
+              <div className="bg-card border border-blue-vibrant/30 p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h4 className="text-lg font-normal text-foreground">Wat zit erin</h4>
+                  <button 
+                    onClick={() => setOpenPanel(null)}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
-                    <span className="text-sm text-foreground/90">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Service Features Panel */}
-          <div 
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${
-              openPanel === "service" ? "opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <div className="bg-card border border-blue-vibrant/30 p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h4 className="text-lg font-normal text-foreground">Wat zit erin</h4>
-                <button 
-                  onClick={() => setOpenPanel(null)}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              <div className="grid gap-3">
-                {serviceFeatures.map((feature) => (
-                  <div 
-                    key={feature} 
-                    className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
-                  >
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
-                    <span className="text-sm text-foreground/90">{feature}</span>
-                  </div>
-                ))}
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="grid gap-3">
+                  {serviceFeatures.map((feature) => (
+                    <div 
+                      key={feature} 
+                      className="flex items-start gap-3 p-3 bg-secondary/50 border border-blue-vibrant/10"
+                    >
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-electric" />
+                      <span className="text-sm text-foreground/90">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
